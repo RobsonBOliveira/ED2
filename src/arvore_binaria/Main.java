@@ -29,5 +29,8 @@ public class Main {
 
         System.out.println("\nPosOrdem Recursivo");
         arvore.posOrder();
+
+        System.out.println("\nPor Nível(em largura)");
+        arvore.inLevel();
     }
 }
