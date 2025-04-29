@@ -99,4 +99,59 @@ public class ArvoreBinaria {
             current = current.right;
         }
     }
+
+    private int height(Node tree) {
+        int a, b;
+        if(tree == null) {
+            return -1;
+        }
+        a = height(tree.left);
+        b = height(tree.right);
+
+        if(a > b){
+            return a+1;
+        } else {
+            return b+1;
+        }
+    }
+
+    public int height() {
+        return this.height(this.root);
+    }
+
+    private Node insert(Node tree, int key){
+        if(tree == null) {
+            return new Node(key);
+        }
+
+        if(key < tree.key) {
+            tree.left = insert(tree.left, key);
+        } else if(key > tree.key) {
+            tree.right = insert(tree.right, key);
+        }
+
+        return tree;
+    }
+
+    public void insert(int key) {
+        this.root = this.insert(this.root, key);
+    }
+
+    private Node search(Node tree, int key){
+        if(tree == null) {
+            return null;
+        }
+
+        if(key < tree.key) {
+            return search(tree.left, key);
+        } else if(key > tree.key) {
+            return search(tree.right, key);
+        } else {
+            return tree;
+        }
+    }
+
+    public Node search(int key) {
+        return this.search(this.root, key);
+    }
 }

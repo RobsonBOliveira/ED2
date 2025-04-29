@@ -32,5 +32,8 @@ public class Main {
 
         System.out.println("\nPor Nível(em largura)");
         arvore.inLevel();
+
+        System.out.println("\nAltura da Árvore");
+        System.out.println(arvore.height());
     }
 }
