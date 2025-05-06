@@ -1,4 +1,7 @@
-package arvore_binaria;
+package arvore_binaria.app;
+
+import arvore_binaria.ArvoreBinaria;
+import arvore_binaria.Node;
 
 public class Main {
     public static void main(String[] args) {

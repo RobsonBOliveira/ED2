@@ -1,4 +1,7 @@
-package arvore_binaria;
+package arvore_binaria.app;
+
+import arvore_binaria.ArvoreBinaria;
+import arvore_binaria.Node;
 
 public class ABBMain {
     public static void main(String[] args) {
@@ -12,9 +15,9 @@ public class ABBMain {
         arvore.insert(6);
         arvore.insert(7);
 
-        Node temp = arvore.search(99);
+        Node temp = arvore.search(6);
         if(temp != null) {
-            System.out.println("O elemento " + temp.key + " está na árvore!");
+            System.out.println("O elemento " + temp.getKey() + " está na árvore!");
         } else {
             System.out.println("O elemento não está na árvore!");
         }

@@ -7,6 +7,10 @@ import java.util.Stack;
 public class ArvoreBinaria {
     private Node root;
 
+    public int getKey(){
+        return root.getKey();
+    }
+
     public ArvoreBinaria() {
         this.root = null;
     }
@@ -153,5 +157,57 @@ public class ArvoreBinaria {
 
     public Node search(int key) {
         return this.search(this.root, key);
+    }
+
+    public Node remove(int key) {
+        return this.remove(this.root, key);
+    }
+
+    private Node remove(Node tree, int key) {
+        if(tree == null) {
+            return null;
+        }
+        if(key < tree.key) {
+            tree.left = remove(tree.left, key);
+        } else if(key > tree.key) {
+            tree.right = remove(tree.right, key);
+        }
+        else {
+                //Caso 1
+            if(tree.left == null && tree.right == null) {
+                tree = null;
+                //Caso 2
+            } else if(tree.left == null) {
+                Node temp = tree;
+                tree = temp.right;
+                temp.right = null;
+            } else if(tree.right == null) {
+                Node temp = tree;
+                tree = temp.left;
+                temp.left = null;
+                //Caso 3
+            } else {
+                Node temp = tree.left;
+                while(temp.right != null) {
+                    temp = temp.right;
+                }
+                tree.key = temp.key;
+                temp.key = key;
+                Node r  = remove(tree.left, temp.key);
+                tree.left = r;
+            }
+        }
+        return tree;
+    }
+
+    public int countNodes(){
+        return this.countNodes(this.root);
+    }
+
+    private int countNodes(Node tree){
+        if(tree == null) {
+            return 0;
+        }
+        return 1 + countNodes(tree.left) + countNodes(tree.right);
     }
 }
