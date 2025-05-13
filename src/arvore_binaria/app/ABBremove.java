@@ -16,7 +16,7 @@ public class ABBremove {
         arvore.insert(405);
 
         arvore.inOrder();
-        System.out.println(arvore.countNodes());
+        System.out.print(arvore.countNodes());
         System.out.println("\nJonas");
         arvore.remove(22);
         arvore.inOrder();

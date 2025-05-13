@@ -210,4 +210,6 @@ public class ArvoreBinaria {
         }
         return 1 + countNodes(tree.left) + countNodes(tree.right);
     }
+
+
 }
