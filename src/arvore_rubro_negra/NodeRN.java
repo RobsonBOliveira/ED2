@@ -6,9 +6,16 @@ public class NodeRN {
     NodeRN dad;
     NodeRN left, right;
 
-    NodeRN(int k, int c) {
+    NodeRN(int k) {
         key = k;
-        color = c;
+        color = 1;
         dad = left = right = null;
     }
+
+    NodeRN() {
+        key = 0;
+        color = 0;
+        dad = left = right = null;
+    }
+
 }
